@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+         *{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      .date{
+        text-align: left;
+      }
+      .blog-card h3{
+        font-size: 28px;
+        text-align: left;
+        color: #6f7a50;
+        width: 100%;
+      }
+      .blog-card p{
+         font-size: 20px;
+        text-align: left;
+        color: #535e37;
+        margin-top: 10px;
+      }
+      /*navbar*/nav{
+        background-color: #89986D;
+        color: #F6F0D7;
+        width: 100%;
+        display: flex;
+     flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: auto;
+        border-bottom-left-radius: 200px;
+        border-bottom-right-radius: 200px;
+        z-index: 40;
+       
+       
+      }
+      .logo{
+        font-size: 40px;
+        font-weight: bold;
+      }
+      .nav-links{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 40%;
+      }
+      .nav-links li a{
+        text-decoration: none;
+        color: #F6F0D7;
+        font-size: 24px;
+        text-transform: capitalize;
+    
+      } 
+       .nav-links li{
+        list-style-type: none;
+       }
+       .nav-links li a:hover{
+        border-bottom:2px solid #F6F0D7 ;
+        padding-bottom:3px ;
+       }  
+        .navbar-container{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 30px 20px 30px; position: fixed;
+        top: 0px;
+          background-color: #89986D;
+          z-index: 60;
+      }
+       .close-button{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        display: none;
+       }
+       .close-button span{
+           border: 1px solid  #F6F0D7 ;
+           width: 20px;
+       }
+        @media (max-width:760px) {
+            .nav-links{
+                display: none;
+                position: absolute;
+                right: 0px;
+                width: 50%;
+                top: 0px;
+                flex-direction: column;
+                background-color: #C5D89D;
+                height: 100vh;
+            }
+            .nav-links li a{
+                color: #89986D;
+                font-size: 30px;
+            }
+            .close-button{
+                display: flex;
+                z-index: 10;
+            }
+            .close-button:hover{
+             border: 1px solid #F6F0D7;
+             padding: 10px;
+            }
+            .head1{
+                font-size: 90px;
+            }
+            .nav-links.active{
+        display: flex;
+    }
+        }
+            .footer {
+  background-color: #6f7a50;
+  color: #F6F0D7;
+  padding: 50px 20px 20px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 30px;
+}
+
+.footer-logo {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.footer-col h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.footer-col p {
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.social-links a {
+  display: inline-block;
+  margin-right: 10px;
+  color: #F6F0D7;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  border-top: 1px solid #F6F0D7;
+  padding-top: 10px;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .footer-container {
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-col {
+    min-width: 100%;
+  }
+  .social-links {
+    margin-top: 10px;
+  }
+}
+
+
+.blog-section {
+  padding: 80px 20px;
+  background: #F6F0D7;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.blog-title {
+  font-size: 50px;
+  color: #89986D;
+  margin-bottom: 50px;
+}
+
+/* GRID */
+.blog-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  width: 100%;
+  margin: auto;
+}
+
+/* CARD */
+.blog-card {
+    width: 100%;
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+}
+
+.blog-card:hover {
+  transform: translateY(-10px);
+}
+
+.blog-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.date {
+  margin: 10px 0;
+  color: gray;
+  font-size: 14px;
+}
+
+/* DETAILS VIEW */
+.blog-details {
+  display: none;
+  width: 80%;
+  margin: 50px auto;
+  text-align: left;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+}
+
+.back-btn {
+  background: #89986D;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+/* POST STYLE */
+.post-meta {
+  color: gray;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.post-title {
+  font-size: 35px;
+  color: #89986D;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.post-para {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.post-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin: 20px 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .blog-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .blog-container {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-title {
+    font-size: 30px;
+  }
+
+  .post-title {
+    font-size: 26px;
+  }
+
+  .post-image {
+    height: 200px;
+  }
+
+  .blog-details {
+    width: 95%;
+    padding: 20px;
+  }
+}
+    </style>
+</head>
+<body>
+   <nav>
+        <div class="navbar-container">
+            <div class="logo">S.kim</div>
+            <ul class="nav-links">
+                <li><a href="home.html">home</a></li>
+                <li><a href="about.html">about</a></li>
+                <li><a href="blog.html">blog</a></li>
+                 <li><a href="home.html#contact">contact</a></li>
+            </ul>
+            <div class="close-button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+    </nav>  
+    
+    <section class="blog-section">
+
+  <h1 class="blog-title">All Posts</h1>
+
+  <!-- Blog Grid -->
+  <div class="blog-container">
+
+    <div class="blog-card" data-id="1">
+      <img src="images/image1.jpg">
+      <p class="date">12 March</p>
+      <h3>Finding Joy in Less: Inspiring Stories of Minimalism
+</h3>
+      <p>In today's fast-paced world filled with consumerism and excess, the art of minimalist living has become a breath of fresh air for many seeking to declutter their lives and find joy in less....</p>
+    </div>
+
+    <div class="blog-card" data-id="2">
+      <img src="images/image1.jpg">
+      <p class="date">15 March</p>
+      <h3>Simple Steps to Declutter Your Home and Mind
+</h3>
+      <p>Are you feeling overwhelmed by the clutter in your home and mind? It may be time to embrace the art of minimalist living. By simplifying and decluttering your space, you can create a calming environment that fosters a sense of peace and clarity....</p>
+    </div>
+
+    <div class="blog-card" data-id="3">
+      <img src="images/image1.jpg">
+      <p class="date">18 March</p>
+      <h3>10 Practical Tips for Embracing Minimalist Living</h3>
+      <p>Minimalist living is not just a trend; it is a lifestyle that can bring immense benefits to your physical and mental well-being. Embracing minimalist living means decluttering your physical space as well as your mind, focusing on what truly matters, and finding joy in simplicity....</p>
+    </div>
+
+  </div>
+
+  <!-- Full Post View -->
+  <div class="blog-details">
+    <button class="back-btn">← Back</button>
+    <div class="content"></div>
+  </div>
+
+</section>
+    <footer class="footer">
+  <div class="footer-container">
+    <!-- Column 1: Logo & About -->
+    <div class="footer-col">
+      <h3 class="footer-logo">S.kim</h3>
+      <p>We are passionate about minimalist living and helping you declutter your life. Explore tips, stories, and inspiration.</p>
+    </div>
+
+    <!-- Column 2: Privacy Policy -->
+    <div class="footer-col">
+      <h3>Privacy Policy</h3>
+      <p>Your privacy matters to us. We respect your data and ensure all information you share is secure and confidential.</p>
+    </div>
+
+    <!-- Column 3: Address & Social Links -->
+    <div class="footer-col">
+      <h3>Contact</h3>
+      <p>123 Minimalist St, City, Country</p>
+      <p>Phone: +123 456 7890</p>
+      <div class="social-links">
+        <a href="#" target="_blank">Facebook</a>
+        <a href="#" target="_blank">Instagram</a>
+        <a href="#" target="_blank">Twitter</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 S.kim. All Rights Reserved.</p>
+  </div>
+</footer>
+      <script>
+        const menuBtn = document.querySelector(".close-button");
+const navLinks = document.querySelector(".nav-links");
+
+menuBtn.addEventListener("click", function(){
+    navLinks.classList.toggle("active");
+});
+
+
+
+// Blog Data
+const blogData = {
+  1: {
+    date: "12 March • 5 min read",
+    title: "Finding Joy in Less: Inspiring Stories of Minimalism",
+    para1: "In today's fast-paced world filled with consumerism and excess, the art of minimalist living has become a breath of fresh air for many seeking to declutter their lives and find joy in less. Minimalism is not just about getting rid of physical possessions, but it's a mindset that values quality over quantity and experiences over things. It's about simplifying life to focus on what truly matters.",
+    image: "images/image1.jpg",
+    para2: "At Minimalist Living Blog, we believe in the power of minimalist living to transform lives and bring a sense of peace and contentment. Our blog is dedicated to sharing practical tips, inspiring stories, and beautiful photography of minimalist interiors and lifestyles. Today, we're excited to share some inspiring stories of individuals who have embraced minimalism and found a new sense of fulfillment in the process.One story that stands out is that of Sarah, a young professional who once chased after the latest trends and filled her home with unnecessary gadgets and knick-knacks. Feeling overwhelmed by the clutter, Sarah decided to take a leap of faith and embrace a minimalist lifestyle. She started decluttering her home, keeping only the items that brought her joy and had a practical purpose. As she let go of the excess, Sarah felt a weight lifted off her shoulders. She discovered that she had more time and energy to focus on her passions and relationships, ultimately finding true happiness in simplicity.Another inspiring story comes from Alex, a couple who used to equate success with material wealth and status symbols. However, after experiencing a life-changing event, they realized that true happiness cannot be bought. They decided to downsize their home, sell their excess belongings, and live more intentionally. With fewer possessions to worry about, Alex found that they had more freedom to travel, pursue their hobbies, and connect with their community. They learned that true richness comes from experiences and relationships, not from material possessions.These stories remind us that minimalist living is not about deprivation, but about abundance in a different form. It's about creating space for the things that truly matter and letting go of the rest. By simplifying our lives, we can reduce stress, increase our happiness, and focus on what brings us genuine joy.If you're feeling overwhelmed by clutter and seeking a more meaningful life, we encourage you to explore the art of minimalist living. Start small by decluttering one area of your home or reevaluating your spending habits. Remember, it's not about perfection but progress towards a simpler, more fulfilling life. Join us on this journey to find joy in less and embrace the beauty of minimalism."
+  },
+  2: {
+    date: "15 March • 4 min read",
+    title: "Simple Steps to Declutter Your Home and Mind",
+    para1: "Are you feeling overwhelmed by the clutter in your home and mind? It may be time to embrace the art of minimalist living. By simplifying and decluttering your space, you can create a calming environment that fosters a sense of peace and clarity.",
+    image: "images/image1.jpg",
+    para2: "Here are some simple steps to help you declutter your home and mind:Start small: Begin decluttering one area of your home at a time. By focusing on one space, such as a closet or a room, you can prevent feeling overwhelmed by the entire process.Declutter ruthlessly: As you go through your belongings, ask yourself if each item brings you joy or serves a practical purpose. If not, consider letting it go. Remember, less is more when it comes to minimalist living.Organize thoughtfully: Once you have decluttered your space, it's essential to organize what's left. Invest in storage solutions, such as baskets or bins, to keep items neatly tucked away.Keep surfaces clear: Minimalist living is about simplicity and clean lines. Keep countertops and surfaces clear of clutter to create a sense of openness and calm in your home.Practice mindfulness: Decluttering your space can also help declutter your mind. Take time each day to sit in silence, meditate, or practice deep breathing to clear your thoughts and focus on the present moment.By following these simple steps, you can transform your home into a peaceful sanctuary and your mind into a clear and focused space. Embracing minimalist living is not about depriving yourself but rather about creating a space that brings you joy and contentment. Start small, be ruthless in decluttering, organize thoughtfully, keep surfaces clear, and practice mindfulness to achieve a clutter-free home and mind."
+  },
+  3: {
+    date: "18 March • 6 min read",
+    title: "10 Practical Tips for Embracing Minimalist Living",
+    para1: "Minimalist living is not just a trend; it is a lifestyle that can bring immense benefits to your physical and mental well-being. Embracing minimalist living means decluttering your physical space as well as your mind, focusing on what truly matters, and finding joy in simplicity. If you are looking to adopt a minimalist lifestyle, here are 10 practical tips to help you get started:",
+    image: "images/image1.jpg",
+    para2: "Declutter Regularly: Start by decluttering one area of your home at a time. Ask yourself if the items bring you joy or serve a practical purpose. If not, consider donating or selling them.Embrace Quality Over Quantity: Invest in high-quality items that will last longer and serve their purpose well, rather than accumulating cheap, disposable items.Simplify Your Wardrobe: Create a capsule wardrobe with versatile pieces that you love and wear often. This will save you time getting ready and reduce decision fatigue.Practice Mindful Consumption: Before making a purchase, ask yourself if the item is a necessity or if it will truly add value to your life. Avoid impulse buys and focus on mindful consumption.Digital Declutter: Declutter your digital life by organizing your files, unsubscribing from unnecessary emails, and limiting your time on social media. A clean digital space can help declutter your mind.Create Functional Spaces: Design your living spaces with functionality in mind. Opt for multi-purpose furniture and storage solutions to maximize space and minimize clutter.Practice Gratitude: Be grateful for what you have rather than focusing on what you don't. Adopting a mindset of gratitude can help you appreciate the simplicity and abundance in your life.Clear Your Mind: In addition to decluttering your physical space, take time to declutter your mind. Practice mindfulness, meditation, or journaling to clear your thoughts and reduce mental clutter.Set Limits: Set limits on your possessions, commitments, and activities. Learn to say no to things that do not align with your values or bring you joy.Focus on Experiences: Instead of accumulating material possessions, focus on collecting experiences and memories. Spend time with loved ones, travel, or engage in hobbies that bring you joy and fulfillment.Embracing minimalist living is a journey, not a destination. It is about creating a life of intention, simplicity, and joy. By incorporating these practical tips into your daily routine, you can experience the benefits of minimalist living and cultivate a sense of peace and contentment in your life."
+  }
+};
+
+// Click card
+$(".blog-card").click(function(){
+  let id = $(this).data("id");
+
+  $(".blog-container").fadeOut(200, function(){
+    $(".blog-details").fadeIn();
+  });
+
+  $(".content").html(`
+    <div class="post-meta">${blogData[id].date}</div>
+    <h2 class="post-title">${blogData[id].title}</h2>
+    <p class="post-para">${blogData[id].para1}</p>
+    <img src="${blogData[id].image}" class="post-image">
+    <p class="post-para">${blogData[id].para2}</p>
+  `);
+});
+
+// Back button
+$(".back-btn").click(function(){
+  $(".blog-details").fadeOut(200, function(){
+    $(".blog-container").fadeIn();
+  });
+});
+    </script>
+</body>
+</html>
